@@ -17,8 +17,12 @@ def import_and_predict(image_data, model):
     img_reshape = np.reshape(img, (1, 256, 256, 3))
     prediction = model.predict(img_reshape)
     return prediction
-
-model = load_model()
+    
+try:
+    model = load_model()
+except Exception as e:
+    st.write(f"Error loading the model: {e}")
+    return
 
 st.write("""
 Detecting AI Generated Art vs Real Art 
