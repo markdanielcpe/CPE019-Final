@@ -4,17 +4,11 @@ from PIL import Image, ImageOps
 import numpy as np
 import os
 from keras.models import load_model
-m
 
 @st.cache(allow_output_mutation=True)
 def load_model():
     model = load_model('finalproj.h5')
     return model
-
-if __name__ == "__main__":
-    model = load_model()
-    if model is not None:
-        print("Model loaded successfully!")
 
 def import_and_predict(image_data, model):
     size = (256, 256)
