@@ -2,11 +2,9 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image, ImageOps
 import numpy as np
+import os
 
 @st.cache(allow_output_mutation=True)
-import os
-import tensorflow as tf
-
 def load_model():
     try:
         model = tf.keras.models.load_model('finalproj.h5')
