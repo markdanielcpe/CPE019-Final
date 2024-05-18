@@ -6,8 +6,14 @@ import numpy as np
 @st.cache(allow_output_mutation=True)
 def load_model():
     try:
-        model = tf.keras.models.load_model('finalproj.h5')
+        model = tf.keras.models.load_model('models/finalproj.h5')
         return model
+    except FileNotFoundError as e:
+        st.write(f"Error: The model file 'models/finalproj.h5' was not found. {e}")
+        return None
+    except tf.errors.InvalidArgumentError as e:
+        st.write(f"Error: The model file 'models/finalproj.h5' is not a valid Keras model. {e}")
+        return None
     except Exception as e:
         st.write(f"Error loading the model: {e}")
         return None
