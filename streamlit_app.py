@@ -42,7 +42,10 @@ def main():
 
         st.image(image, caption='Uploaded Image', use_column_width=True)
 
-        st.write(f"The uploaded image is most likely: {result}")
-
+        if result == 'Vehicle':
+            st.write(f"The uploaded image is most likely: {result}")
+        else:
+            st.write(f"The uploaded image is most likely: {result}")
+        
 if __name__ == '__main__':
     main()
