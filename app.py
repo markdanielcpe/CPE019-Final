@@ -7,8 +7,23 @@ from keras.models import load_model
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = load_model('finalproj.h5')
-    return model
+    try:
+        model = tf.keras.models.load_model('finalproj.h5')
+        return model
+    except FileNotFoundError as e:
+        print(f"Error: The model file 'finalproj.h5' was not found. {e}")
+        return None
+    except tf.errors.InvalidArgumentError as e:
+        print(f"Error: The model file 'finalproj.h5' is not a valid Keras model. {e}")
+        return None
+    except Exception as e:
+        print(f"Error loading the model: {e}")
+        return None
+
+if __name__ == "__main__":
+    model = load_model()
+    if model is not None:
+        print("Model loaded successfully!")
 
 def import_and_predict(image_data, model):
     size = (256, 256)
