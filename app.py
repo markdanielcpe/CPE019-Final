@@ -37,10 +37,7 @@ def import_and_predict(image_data, model):
     
 model = load_model()
 
-if model is None:
-    st.text("Error loading the model. Please try again later.")
-else:
-    st.write("""
+st.write("""
     Detecting AI Generated Art vs Real Art 
     """)
 
