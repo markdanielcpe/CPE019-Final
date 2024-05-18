@@ -4,19 +4,27 @@ from PIL import Image, ImageOps
 import numpy as np
 
 @st.cache(allow_output_mutation=True)
+import os
+import tensorflow as tf
+
 def load_model():
     try:
         model = tf.keras.models.load_model('finalproj.h5')
         return model
     except FileNotFoundError as e:
-        st.write(f"Error: The model file 'finalproj.h5' was not found. {e}")
+        print(f"Error: The model file 'finalproj.h5' was not found. {e}")
         return None
     except tf.errors.InvalidArgumentError as e:
-        st.write(f"Error: The model file 'finalproj.h5' is not a valid Keras model. {e}")
+        print(f"Error: The model file 'finalproj.h5' is not a valid Keras model. {e}")
         return None
     except Exception as e:
-        st.write(f"Error loading the model: {e}")
+        print(f"Error loading the model: {e}")
         return None
+
+if __name__ == "__main__":
+    model = load_model()
+    if model is not None:
+        print("Model loaded successfully!")
 
 def import_and_predict(image_data, model):
     size = (256, 256)
