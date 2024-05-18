@@ -43,9 +43,9 @@ def main():
         st.image(image, caption='Uploaded Image', use_column_width=True)
 
         if result == 'Vehicle':
-            st.write(f"The uploaded image is most likely: {result}")
+            st.write(f"The uploaded image is most likely: Car")
         else:
-            st.write(f"The uploaded image is most likely: {result}")
+            st.write(f"The uploaded image is most likely: Ambulance")
         
 if __name__ == '__main__':
     main()
