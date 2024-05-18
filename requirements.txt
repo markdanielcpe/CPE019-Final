@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 streamlit
 tensorflow
 opencv-python-headless
-=======
-streamlit
-tensorflow
-opencv-python-headless
->>>>>>> b824cb773d8c65e8f9bc7ab02a8b3aab57ab3809
