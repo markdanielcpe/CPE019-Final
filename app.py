@@ -6,7 +6,7 @@ import numpy as np
 @st.cache(allow_output_mutation=True)
 def load_model():
     try:
-        model = tf.keras.models.load_model('CPE019-Final/finalproj.h5')
+        model = tf.keras.models.load_model('finalproj.h5')
         return model
     except Exception as e:
         st.write(f"Error loading the model: {e}")
